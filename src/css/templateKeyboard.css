@@ -1,0 +1,29 @@
+
+.keyboardRus{
+    border:1px solid black;
+    position: relative;
+    clear: both;
+    width: 675px;
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: block;
+}
+
+.line::after{
+    content: "";
+    display: block;
+    clear:both;
+}
+
+.keyboardEng{
+    border:1px solid black;
+    position: relative;
+    clear: both;
+    width: 675px;
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: none;
+}
+

@@ -1,0 +1,47 @@
+/*! exports provided: AnimationKeys */
+
+/*! exports provided: ClickKeyboards */
+
+/*! exports provided: Component */
+
+/*! exports provided: KeyboardComponents */
+
+/*! exports provided: PressEngKeyboards */
+
+/*! exports provided: PressRuKeyboards */
+
+/*! no exports provided */
+
+/*! no static exports found */
+
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+
+/*!***************************!*\
+  !*** ./src/css/index.css ***!
+  \***************************/
+
+/*!***************************************!*\
+  !*** ./src/modules/core/component.js ***!
+  \***************************************/
+
+/*!*********************************************!*\
+  !*** ./src/modules/components/animation.js ***!
+  \*********************************************/
+
+/*!**************************************************!*\
+  !*** ./src/modules/components/clickKeyboards.js ***!
+  \**************************************************/
+
+/*!****************************************************!*\
+  !*** ./src/modules/components/keyboardRu.press.js ***!
+  \****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./src/modules/components/keyboardEng.press.js ***!
+  \*****************************************************/
+
+/*!******************************************************!*\
+  !*** ./src/modules/components/keyboard.component.js ***!
+  \******************************************************/

@@ -1,0 +1,44 @@
+
+.key{
+    float: left;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    margin: 3px;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 6px;
+    box-sizing: border-box;
+    
+}
+
+.backspace{
+    width: auto;
+}
+
+.tab{
+    width: 60px;
+}
+
+.capslock{
+    width: 70px;
+}
+
+.shift{
+    width: 101px;
+}
+
+.space{
+    width: 240px;
+}
+
+.enter{
+    width:86px;
+}
+
+.slash{
+    width:50px;
+}
+.changeLanguage{
+    width: 55px;
+}
