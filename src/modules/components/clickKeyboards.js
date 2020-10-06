@@ -17,16 +17,14 @@ export class ClickKeyboards extends Component{
 }
 
 
-
 function handleClickRu(event){
-   
+
     const action = event.target
     if(action.hasAttribute('data-action')===false) return
   
     let char = action.innerHTML
 
     if(char==='Caps lock'){
-       
         action.classList.toggle('lower')
         action.classList.toggle('upper')
    }
@@ -47,20 +45,38 @@ function handleClickRu(event){
         str = char.toLowerCase()
    }
   
- 
+   let oldSelectionStart = area.selectionStart;//кладем старый индекс входящего символа
 
     switch(str){   
-        case "backspace":  area.value=area.value.substring(0, area.value.length - 1);
+        case "backspace":  
+        area.value = area.value.substring(0, area.selectionStart-1) + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart-1;
+        area.selectionEnd = oldSelectionStart-1;
         break;
-        case "BACKSPACE":  area.value=area.value.substring(0, area.value.length - 1);
+        case "BACKSPACE":  
+        area.value = area.value.substring(0, area.selectionStart-1) + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart-1;
+        area.selectionEnd = oldSelectionStart-1;
         break;
-        case "space": area.value+= ' ';
+        case "space": 
+        area.value = area.value.substring(0, area.selectionStart) + " " + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart + 1;
+        area.selectionEnd = oldSelectionStart + 1;
         break;
-        case "SPACE": area.value+= ' ';
+        case "SPACE": 
+        area.value = area.value.substring(0, area.selectionStart) + " " + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart + 1;
+        area.selectionEnd = oldSelectionStart + 1;
         break;
-        case "enter": area.value+= String.fromCharCode(action.dataset.action);
+        case "enter":
+        area.value = area.value.substring(0, area.selectionStart) + "\n" + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart + 1;
+        area.selectionEnd = oldSelectionStart + 1;
         break;
-        case "ENTER": area.value+= String.fromCharCode(action.dataset.action);
+        case "ENTER": 
+        area.value = area.value.substring(0, area.selectionStart) + "\n" + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart + 1;
+        area.selectionEnd = oldSelectionStart + 1;
         break;
         case "caps lock": area.value+='';
         break;
@@ -95,20 +111,23 @@ function handleClickRu(event){
         case "ALT GR": area.value+='';
         break;
         case '<img src="https://img.icons8.com/material/26/000000/cls.png">': area.value+='';
+        break;
         case '<IMG SRC="HTTPS://IMG.ICONS8.COM/MATERIAL/26/000000/CLS.PNG"><IMG SRC="HTTPS://IMG.ICONS8.COM/MATERIAL/26/000000/CLS.PNG">': area.value+='';
         break;
-        case '<b>&lt;</b>': area.value+='';
+        case 'left': area.value+='';
         break;
-        case '<B>&LT;</B>': area.value+='';
+        case 'right': area.value+='';
         break;
-        case '<b>&gt;</b>': area.value+='';
+        case 'LEFT': area.value+='';
         break;
-        case '<B>&GT;</B>': area.value+='';
+        case 'RIGHT': area.value+='';
         break;
-        default: area.value+=str;
+        default: 
+        area.value=area.value.substring(0, area.selectionStart) + str + area.value.substring(area.selectionEnd, area.value.length);//при клике на эл-т div между строками изначальный символ сдвигается(т.е порядковый номер принимает новое значение)
+        area.selectionStart = oldSelectionStart + 1;//в строках порядковое значение у всех эл-ов в строке сдвигается:
+        area.selectionEnd = oldSelectionStart + 1;
     }
 }
-
 
 
 function handleClickEng(event){
@@ -141,20 +160,38 @@ function handleClickEng(event){
     strEng = char.toLowerCase()
    }
  
+   let oldSelectionStart = area.selectionStart;
 
     switch(strEng){   
-        case "backspace":  area.value=area.value.substring(0, area.value.length - 1);
+        case "backspace":  
+        area.value = area.value.substring(0, area.selectionStart-1) + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart-1;
+        area.selectionEnd = oldSelectionStart-1;
         break;
-        case "BACKSPACE":  area.value=area.value.substring(0, area.value.length - 1);
+        case "BACKSPACE":  
+        area.value = area.value.substring(0, area.selectionStart-1) + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart-1;
+        area.selectionEnd = oldSelectionStart-1;
         break;
-        case "space": area.value+= ' ';
+        case "space": 
+        area.value = area.value.substring(0, area.selectionStart) + " " + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart + 1;
+        area.selectionEnd = oldSelectionStart + 1;
         break;
-        case "SPACE": area.value+= ' ';
+        case "SPACE": 
+        area.value = area.value.substring(0, area.selectionStart) + " " + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart + 1;
+        area.selectionEnd = oldSelectionStart + 1;
         break;
-        case "enter": area.value+= String.fromCharCode(action.dataset.action);
+        case "enter":
+        area.value = area.value.substring(0, area.selectionStart) + "\n" + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart + 1;
+        area.selectionEnd = oldSelectionStart + 1;
         break;
-        case "ENTER": area.value+= String.fromCharCode(action.dataset.action);
-        break;
+        case "ENTER": 
+        area.value = area.value.substring(0, area.selectionStart) + "\n" + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart + 1;
+        area.selectionEnd = oldSelectionStart + 1;
         case "caps lock": area.value+='';
         break;
         case "CAPS LOCK": area.value+='';
@@ -190,15 +227,18 @@ function handleClickEng(event){
         case '<img src="https://img.icons8.com/material/26/000000/cls.png">': area.value+='';
         case '<IMG SRC="HTTPS://IMG.ICONS8.COM/MATERIAL/26/000000/CLS.PNG"><IMG SRC="HTTPS://IMG.ICONS8.COM/MATERIAL/26/000000/CLS.PNG">': area.value+='';
         break;
-        case '<b>left</b>': area.value+='';
+        case 'left': area.value+='';
         break;
-        case '<b>right</b>': area.value+='';
+        case 'right': area.value+='';
         break;
-        case '<B>LEFT</B>': area.value+='';
+        case 'LEFT': area.value+='';
         break;
-        case '<B>RIGHT</B>': area.value+='';
+        case 'RIGHT': area.value+='';
         break;
-        default: area.value+=strEng;
+        default:  
+        area.value=area.value.substring(0, area.selectionStart) + strEng + area.value.substring(area.selectionEnd, area.value.length);
+        area.selectionStart = oldSelectionStart + 1;
+        area.selectionEnd = oldSelectionStart + 1;
     }
 }
 

@@ -11,7 +11,7 @@ export class KeyboardComponents extends Component {
     }//Реализовываем логику
 }
 
-function changeLanguage(event){
+function changeLanguage(event){//смена языка при клике на компонент "Toggle"
     event.preventDefault()
     const rusKeyb = this.$el[0]
     const engKeyb = this.$el[1]

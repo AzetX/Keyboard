@@ -15,7 +15,7 @@ keyElement.map((elem, ind, arr) => keys[ind].setAttribute('data-action', keyElem
 
 
 function getDataKeyPress(event){
-
+    console.log(event)
    for(let i=0; i<keys.length; i++){
        let value = keys[i]
        if(+value.getAttribute('data-action')===event.keyCode){

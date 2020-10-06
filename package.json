@@ -2,6 +2,7 @@
   "name": "keyboard",
   "version": "1.0.0",
   "description": "keyboard project",
+  "homepage": "https://azetx.github.io/Keyboard/",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",

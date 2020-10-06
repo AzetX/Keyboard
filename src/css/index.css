@@ -30,3 +30,17 @@ h1 {
     resize: none;
     border-radius: 5px;
 }
+
+a{  
+    background-color: red;
+    box-shadow: 0 5px 0 darkred;
+    text-decoration: none;
+    font-family: helvetica;
+    color: whitesmoke;
+    text-transform: uppercase;
+    position: relative;
+}
+
+a:hover{
+    background-color: #ce0606;
+}
